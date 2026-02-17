@@ -46,13 +46,13 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-sm mb-3 text-primary">Connect</h4>
             <div className="flex gap-4">
-              <a href="https://linkedin.com/in/avaizashahid" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
+              <a href="https://www.linkedin.com/in/avaiza-shahid" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
                 <Linkedin size={18} />
               </a>
-              <a href="https://github.com/avaizashahid" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
+              <a href="https://github.com/Avaiza123" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
                 <Github size={18} />
               </a>
-              <a href="mailto:avaiza@example.com" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
+              <a href="mailto:avaizashahid@gmail.com" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
                 <Mail size={18} />
               </a>
             </div>
