@@ -69,18 +69,18 @@ const projects = [
     techStack: ["React", "Firebase", "JSX", "Ant Design"],
     features: ["Responsive cart", "Product cards", "Firebase auth & database"],
   },
-  {
-    id: "login",
-    title: "Login Page",
-    icon: Sparkles,
-    tagline: "React Authentication",
-    images: [loginImg],
-    github: "https://github.com/Avaiza123/Login-Signup-To-do-list",
-    description:
-      "React Vite project with Firebase Authentication supporting Google and email/password login.",
-    techStack: ["React", "Firebase", "TypeScript", "CSS"],
-    features: ["Secure signup/login", "Google auth", "Cloud Firestore"],
-  },
+  // {
+    // id: "login",
+    // title: "Login Page",
+    // icon: Sparkles,
+    // tagline: "React Authentication",
+    // images: [loginImg],
+    // github: "https://github.com/Avaiza123/Login-Signup-To-do-list",
+    // description:
+      // "React Vite project with Firebase Authentication supporting Google and email/password login.",
+    // techStack: ["React", "Firebase", "TypeScript", "CSS"],
+    // features: ["Secure signup/login", "Google auth", "Cloud Firestore"],
+  // },
   {
     id: "todo",
     title: "To-do List",

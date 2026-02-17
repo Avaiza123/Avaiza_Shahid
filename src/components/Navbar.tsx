@@ -53,29 +53,29 @@ const Navbar = () => {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border/20"
-            : "border-b border-border/10"
+            ? "bg-background/80 backdrop-blur-xl shadow-md border-b border-border/20"
+            : "bg-background/40 border-b border-border/10"
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             
-            {/* Profile Image (Top Left) */}
+            {/* Profile Image */}
             <a href="#home" className="flex items-left">
               <img
                 src="/profile.jpg"
                 alt="Avaiza Shahid"
-                className="w-14 h-14 sm:w-14 sm:h-14 rounded-full object-cover border border-primary/40"
+                className="w-14 h-14 sm:w-14 sm:h-14 rounded-full object-cover border border-primary/40 shadow-sm"
               />
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-right gap-8">
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleClick(link.href)}
-                  className="text-md text-muted-foreground hover:text-primary transition-colors duration-200"
+                  className="text-md text-muted-foreground hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {link.label}
                 </button>
@@ -98,14 +98,14 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/20"
+            className="md:hidden bg-background/95 backdrop-blur-xl border border-border/20 rounded-b-xl shadow-lg mx-4 mt-2"
           >
-            <div className="px-4 py-4 flex flex-col gap-4">
+            <div className="flex flex-col px-6 py-4 gap-4">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleClick(link.href)}
-                  className="text-right text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary text-left font-medium transition-colors duration-200"
                 >
                   {link.label}
                 </button>

@@ -65,17 +65,22 @@ const certifications = [
   { id: "scientia", category: "leadership", title: "Scientia Spectrum 2025", issuer: "UET Science Society", image: certScientia, description: "Issued Oct 2025." },
   { id: "hashtag", category: "leadership", title: "Certificate of Appreciation", issuer: "Hashtag Heroes", image: certHashtag, description: "Issued for contributions." },
 ];
-
 const CertificationsSection = () => {
   const [selected, setSelected] = useState<string | null>(null);
+  const [filter, setFilter] = useState<"technical" | "leadership" | "all">("all");
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const sortedCertifications = [...certifications].sort((a, b) =>
-    a.category === b.category ? 0 : a.category === "technical" ? -1 : 1
+  const filteredCerts = certifications.filter(
+    (c) => filter === "all" || c.category === filter
   );
 
-  const cert = sortedCertifications.find((c) => c.id === selected);
+  const cert = certifications.find((c) => c.id === selected);
+
+  const handleCardClick = (id: string) => {
+    // toggle modal
+    setSelected((prev) => (prev === id ? null : id));
+  };
 
   return (
     <section id="certifications" className="py-20 px-4 max-w-6xl mx-auto">
@@ -89,18 +94,45 @@ const CertificationsSection = () => {
           <span className="gradient-text">Certifications</span>
         </h2>
 
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-8">
           Professional achievements and recognitions
         </p>
 
+        {/* Toggle Buttons */}
+        {/* Toggle Buttons */}
+<div className="flex justify-center gap-4 mb-12">
+  <button
+    onClick={() => setFilter("technical")}
+    className={`px-6 py-2 rounded-md font-semibold text-sm transition-all duration-300 transform border ${
+      filter === "technical"
+        ? "bg-primary text-background font-bold shadow-xl scale-105"
+        : "bg-background/20 text-primary border-primary/50 hover:shadow-md hover:scale-[1.03]"
+    }`}
+  >
+    Technical
+  </button>
+
+  <button
+    onClick={() => setFilter("leadership")}
+    className={`px-6 py-2 rounded-md font-semibold text-sm transition-all duration-300 transform border ${
+      filter === "leadership"
+        ? "bg-primary text-background font-bold shadow-xl scale-105"
+        : "bg-background/20 text-primary border-primary/50 hover:shadow-md hover:scale-[1.03]"
+    }`}
+  >
+    Leadership
+  </button>
+</div>
+
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {sortedCertifications.map((c, i) => (
+          {filteredCerts.map((c, i) => (
             <motion.div
               key={c.id}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.05 + i * 0.03 }}
-              onClick={() => setSelected(c.id)}
+              onClick={() => handleCardClick(c.id)}
               className="glass-card neon-border neon-glow-hover neon-border-hover overflow-hidden cursor-pointer hover:scale-[1.03] transition-all duration-300 group"
             >
               <div className="aspect-[4/3] overflow-hidden flex items-center justify-center bg-background/10 p-2">
@@ -120,6 +152,7 @@ const CertificationsSection = () => {
         </div>
       </motion.div>
 
+      {/* Modal */}
       {cert && (
         <motion.div
           initial={{ opacity: 0 }}
