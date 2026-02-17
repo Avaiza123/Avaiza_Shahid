@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { X } from "lucide-react";
 
-// Import all your certificate images
+// Import certificate images
 import certACMHead from "../assets/certificates/cert-acm head.png";
 import certACM404 from "../assets/certificates/cert-acm404.png";
 import certACMMembership from "../assets/certificates/cert-acm-membership.png";
@@ -33,34 +33,37 @@ import certSnap from "../assets/certificates/cert-snap.png";
 import certWordPress from "../assets/certificates/cert-wordpress.png";
 
 const certifications = [
-  { id: "acm-head", title: "Head Certificate", issuer: "ACM CUI", image: certACMHead, description: "Leadership role as Head of ACM squad." },
-  { id: "acm-404", title: "ACM 404 Squad Certificate", issuer: "ACM CUI", image: certACM404, description: "Contribution to ACM 404 squad events." },
-  { id: "acm-membership", title: "ACM Membership", issuer: "ACM CUI", image: certACMMembership, description: "Active member of ACM Student Chapter." },
-  { id: "ambassador", title: "Ambassador", issuer: "UET Science Society", image: certAmbassador, description: "Recognized as an ambassador." },
-  { id: "flutter", title: "Flutter Apps (Web, Mobile & Desktop)", issuer: "Punjab Higher Education Commission", image: certFlutter, description: "Issued Jun 2025." },
-  { id: "google-ai", title: "Maximize Productivity With AI Tools", issuer: "Google", image: certGoogleAI, description: "Issued Jun 2025." },
-  { id: "google-data", title: "Google Data Analytics Capstone", issuer: "Google", image: certGoogleData, description: "Issued Jul 2023." },
-  { id: "google-data1", title: "Foundations: Data, Data Everywhere", issuer: "Google", image: certGoogleData1, description: "Issued Dec 2023." },
-  { id: "google-data2", title: "Ask Questions to Make Data-Driven Decisions", issuer: "Google", image: certGoogleData2, description: "Issued Jan 2024." },
-  { id: "google-data3", title: "Google Data Analytics Case Study", issuer: "Google", image: certGoogleData3, description: "Issued Jul 2023." },
-  { id: "graphic", title: "Graphic Designing Course", issuer: "Learning With Earning", image: certGraphic, description: "Issued Aug 2023." },
-  { id: "greatlearning", title: "Flutter Course", issuer: "Great Learning", image: certGreatLearning, description: "Issued Oct 2024." },
-  { id: "hashtag", title: "Certificate of Appreciation", issuer: "Hashtag Heroes", image: certHashtag, description: "Issued for contributions." },
-  { id: "hpe", title: "Cloud-Based Network Design", issuer: "HPE Aruba Networking", image: certHPE, description: "Issued Mar 2023." },
-  { id: "ibm", title: "What is Data Science?", issuer: "IBM", image: certIBM, description: "Issued Mar 2023." },
-  { id: "javafx", title: "Starting GUI Programming with JavaFX", issuer: "Coursera", image: certJavaFX, description: "Issued May 2023." },
-  { id: "javafx2", title: "Use Menus to Process Simple Personal Data in JavaFX", issuer: "Coursera", image: certJavaFX2, description: "Issued May 2023." },
-  { id: "linkedin", title: "Content & Creative Design Certification", issuer: "LinkedIn Learning", image: certLinkedIn, description: "Issued Aug 2025." },
-  { id: "openweaver", title: "Introduction to Programming Using Python", issuer: "Open Weaver", image: certOpenWeaver, description: "Issued Jan 2023." },
-  { id: "participant", title: "Participant", issuer: "UET Science Society", image: certParticipant, description: "Issued Jul 2025." },
-  { id: "pixel", title: "Certificate of Appreciation", issuer: "Pixel Pioneers", image: certPixel, description: "Issued for contributions." },
-  { id: "pucon", title: "Campus Ambassador", issuer: "PUCon '25", image: certPUCon, description: "Issued Jun 2023." },
-  { id: "python-crash", title: "Crash Course on Python", issuer: "Google", image: certPythonCrash, description: "Issued Feb 2023." },
-  { id: "python-ust", title: "Create Your First Python Program", issuer: "UST / Coursera", image: certPythonUST, description: "Issued Feb 2023." },
-  { id: "react", title: "React.js Course", issuer: "LetsUpgrade", image: certReact, description: "Issued Aug 2024." },
-  { id: "scientia", title: "Scientia Spectrum 2025", issuer: "UET Science Society", image: certScientia, description: "Issued Oct 2025." },
-  { id: "snap", title: "Snapchat Lens Studio Workshop", issuer: "Snap Inc.", image: certSnap, description: "Issued Jul 2023." },
-  { id: "wordpress", title: "WordPress Web Development Course", issuer: "Learning With Earning", image: certWordPress, description: "Issued Aug 2023." },
+  // 🔹 TECHNICAL
+  { id: "flutter", category: "technical", title: "Flutter Apps (Web, Mobile & Desktop)", issuer: "Punjab Higher Education Commission", image: certFlutter, description: "Issued Jun 2025." },
+  { id: "google-ai", category: "technical", title: "Maximize Productivity With AI Tools", issuer: "Google", image: certGoogleAI, description: "Issued Jun 2025." },
+  { id: "google-data", category: "technical", title: "Google Data Analytics Capstone", issuer: "Google", image: certGoogleData, description: "Issued Jul 2023." },
+  { id: "google-data1", category: "technical", title: "Foundations: Data, Data Everywhere", issuer: "Google", image: certGoogleData1, description: "Issued Dec 2023." },
+  { id: "google-data2", category: "technical", title: "Ask Questions to Make Data-Driven Decisions", issuer: "Google", image: certGoogleData2, description: "Issued Jan 2024." },
+  { id: "google-data3", category: "technical", title: "Google Data Analytics Case Study", issuer: "Google", image: certGoogleData3, description: "Issued Jul 2023." },
+  { id: "python-crash", category: "technical", title: "Crash Course on Python", issuer: "Google", image: certPythonCrash, description: "Issued Feb 2023." },
+  { id: "python-ust", category: "technical", title: "Create Your First Python Program", issuer: "UST / Coursera", image: certPythonUST, description: "Issued Feb 2023." },
+  { id: "react", category: "technical", title: "React.js Course", issuer: "LetsUpgrade", image: certReact, description: "Issued Aug 2024." },
+  { id: "javafx", category: "technical", title: "Starting GUI Programming with JavaFX", issuer: "Coursera", image: certJavaFX, description: "Issued May 2023." },
+  { id: "javafx2", category: "technical", title: "Use Menus to Process Simple Personal Data in JavaFX", issuer: "Coursera", image: certJavaFX2, description: "Issued May 2023." },
+  { id: "wordpress", category: "technical", title: "WordPress Web Development Course", issuer: "Learning With Earning", image: certWordPress, description: "Issued Aug 2023." },
+  { id: "ibm", category: "technical", title: "What is Data Science?", issuer: "IBM", image: certIBM, description: "Issued Mar 2023." },
+  { id: "hpe", category: "technical", title: "Cloud-Based Network Design", issuer: "HPE Aruba Networking", image: certHPE, description: "Issued Mar 2023." },
+  { id: "openweaver", category: "technical", title: "Introduction to Programming Using Python", issuer: "Open Weaver", image: certOpenWeaver, description: "Issued Jan 2023." },
+  { id: "graphic", category: "technical", title: "Graphic Designing Course", issuer: "Learning With Earning", image: certGraphic, description: "Issued Aug 2023." },
+  { id: "greatlearning", category: "technical", title: "Flutter Course", issuer: "Great Learning", image: certGreatLearning, description: "Issued Oct 2024." },
+  { id: "linkedin", category: "technical", title: "Content & Creative Design Certification", issuer: "LinkedIn Learning", image: certLinkedIn, description: "Issued Aug 2025." },
+  { id: "snap", category: "technical", title: "Snapchat Lens Studio Workshop", issuer: "Snap Inc.", image: certSnap, description: "Issued Jul 2023." },
+
+  // 🔹 LEADERSHIP
+  { id: "acm-head", category: "leadership", title: "Head Certificate", issuer: "ACM CUI", image: certACMHead, description: "Leadership role as Head of ACM squad." },
+  { id: "acm-404", category: "leadership", title: "ACM 404 Squad Certificate", issuer: "ACM CUI", image: certACM404, description: "Contribution to ACM 404 squad events." },
+  { id: "acm-membership", category: "leadership", title: "ACM Membership", issuer: "ACM CUI", image: certACMMembership, description: "Active member of ACM Student Chapter." },
+  { id: "ambassador", category: "leadership", title: "Ambassador", issuer: "UET Science Society", image: certAmbassador, description: "Recognized as an ambassador." },
+  { id: "participant", category: "leadership", title: "Participant", issuer: "UET Science Society", image: certParticipant, description: "Issued Jul 2025." },
+  { id: "pixel", category: "leadership", title: "Certificate of Appreciation", issuer: "Pixel Pioneers", image: certPixel, description: "Issued for contributions." },
+  { id: "pucon", category: "leadership", title: "Campus Ambassador", issuer: "PUCon '25", image: certPUCon, description: "Issued Jun 2023." },
+  { id: "scientia", category: "leadership", title: "Scientia Spectrum 2025", issuer: "UET Science Society", image: certScientia, description: "Issued Oct 2025." },
+  { id: "hashtag", category: "leadership", title: "Certificate of Appreciation", issuer: "Hashtag Heroes", image: certHashtag, description: "Issued for contributions." },
 ];
 
 const CertificationsSection = () => {
@@ -68,7 +71,11 @@ const CertificationsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const cert = certifications.find((c) => c.id === selected);
+  const sortedCertifications = [...certifications].sort((a, b) =>
+    a.category === b.category ? 0 : a.category === "technical" ? -1 : 1
+  );
+
+  const cert = sortedCertifications.find((c) => c.id === selected);
 
   return (
     <section id="certifications" className="py-20 px-4 max-w-6xl mx-auto">
@@ -81,12 +88,13 @@ const CertificationsSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
           <span className="gradient-text">Certifications</span>
         </h2>
+
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
           Professional achievements and recognitions
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {certifications.map((c, i) => (
+          {sortedCertifications.map((c, i) => (
             <motion.div
               key={c.id}
               initial={{ opacity: 0, y: 30 }}
@@ -102,6 +110,7 @@ const CertificationsSection = () => {
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
+
               <div className="p-4 text-center">
                 <h3 className="font-semibold text-sm mb-1">{c.title}</h3>
                 <p className="text-primary/70 text-xs">{c.issuer}</p>
@@ -131,11 +140,13 @@ const CertificationsSection = () => {
             >
               <X size={16} />
             </button>
+
             <img
               src={cert.image}
               alt={cert.title}
               className="w-full aspect-[4/3] object-contain"
             />
+
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold mb-1">{cert.title}</h3>
               <p className="text-primary text-sm mb-3">{cert.issuer}</p>

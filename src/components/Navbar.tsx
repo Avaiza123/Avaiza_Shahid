@@ -63,7 +63,7 @@ const Navbar = () => {
             {/* Profile Image (Top Left) */}
             <a href="#home" className="flex items-left">
               <img
-                src="/src/assets/profile.jpg"
+                src="/profile.jpg"
                 alt="Avaiza Shahid"
                 className="w-14 h-14 sm:w-14 sm:h-14 rounded-full object-cover border border-primary/40"
               />
