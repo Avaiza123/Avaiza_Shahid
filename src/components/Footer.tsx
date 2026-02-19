@@ -22,7 +22,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold gradient-text mb-3">Avaiza Shahid</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Software Engineering Student & Flutter Developer. Building scalable and elegant mobile solutions.
+              Software Engineer. Building scalable and elegant mobile solutions.
             </p>
           </div>
 
