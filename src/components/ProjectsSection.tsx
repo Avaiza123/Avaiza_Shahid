@@ -11,7 +11,7 @@ import flavamoImg from "../assets/flavamo.webp";
 import pizzaImg from "../assets/pizza.webp";
 import todoImg from "../assets/todolist.webp";
 import movewise from "../assets/Mlogo.png";
-import MChat from "../assets/MChat.png";
+import MChat from "../assets/Mchat.png";
 interface Project {
   id: string;
   title: string;
