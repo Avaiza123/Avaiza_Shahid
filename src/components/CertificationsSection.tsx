@@ -3,34 +3,34 @@ import { motion, useInView } from "framer-motion";
 import { X } from "lucide-react";
 
 // Import certificate images
-import certACMHead from "../assets/certificates/cert-acm head.png";
-import certACM404 from "../assets/certificates/cert-acm404.png";
-import certACMMembership from "../assets/certificates/cert-acm-membership.png";
-import certAmbassador from "../assets/certificates/cert-ambassador.png";
-import certFlutter from "../assets/certificates/cert-flutter.png";
-import certGoogleAI from "../assets/certificates/cert-google-ai.png";
-import certGoogleData from "../assets/certificates/cert-google-data.png";
-import certGoogleData1 from "../assets/certificates/cert-google-data1.png";
-import certGoogleData2 from "../assets/certificates/cert-google-data2.png";
-import certGoogleData3 from "../assets/certificates/cert-google-data3.png";
-import certGraphic from "../assets/certificates/cert-graphic.png";
-import certGreatLearning from "../assets/certificates/cert-greatlearning.png";
-import certHashtag from "../assets/certificates/cert-hastag.png";
-import certHPE from "../assets/certificates/cert-hpe.png";
-import certIBM from "../assets/certificates/cert-ibm.png";
-import certJavaFX from "../assets/certificates/cert-javafx.png";
-import certJavaFX2 from "../assets/certificates/cert-javafx2.png";
-import certLinkedIn from "../assets/certificates/cert-linkedin.png";
-import certOpenWeaver from "../assets/certificates/cert-openweaver.png";
-import certParticipant from "../assets/certificates/cert-participant.png";
-import certPixel from "../assets/certificates/cert-pixel.png";
-import certPUCon from "../assets/certificates/cert-pucon.png";
-import certPythonCrash from "../assets/certificates/cert-python-crash.png";
-import certPythonUST from "../assets/certificates/cert-python-ust.png";
-import certReact from "../assets/certificates/cert-react.png";
-import certScientia from "../assets/certificates/cert-scientia.png";
-import certSnap from "../assets/certificates/cert-snap.png";
-import certWordPress from "../assets/certificates/cert-wordpress.png";
+import certACMHead from "../assets/certificates/cert-acm head.webp";
+import certACM404 from "../assets/certificates/cert-acm404.webp";
+import certACMMembership from "../assets/certificates/cert-acm-membership.webp";
+import certAmbassador from "../assets/certificates/cert-ambassador.webp";
+import certFlutter from "../assets/certificates/cert-flutter.webp";
+import certGoogleAI from "../assets/certificates/cert-google-ai.webp";
+import certGoogleData from "../assets/certificates/cert-google-data.webp";
+import certGoogleData1 from "../assets/certificates/cert-google-data1.webp";
+import certGoogleData2 from "../assets/certificates/cert-google-data2.webp";
+import certGoogleData3 from "../assets/certificates/cert-google-data3.webp";
+import certGraphic from "../assets/certificates/cert-graphic.webp";
+import certGreatLearning from "../assets/certificates/cert-greatlearning.webp";
+import certHashtag from "../assets/certificates/cert-hastag.webp";
+import certHPE from "../assets/certificates/cert-hpe.webp";
+import certIBM from "../assets/certificates/cert-ibm.webp";
+import certJavaFX from "../assets/certificates/cert-javafx.webp";
+import certJavaFX2 from "../assets/certificates/cert-javafx2.webp";
+import certLinkedIn from "../assets/certificates/cert-linkedin.webp";
+import certOpenWeaver from "../assets/certificates/cert-openweaver.webp";
+import certParticipant from "../assets/certificates/cert-participant.webp";
+import certPixel from "../assets/certificates/cert-pixel.webp";
+import certPUCon from "../assets/certificates/cert-pucon.webp";
+import certPythonCrash from "../assets/certificates/cert-python-crash.webp";
+import certPythonUST from "../assets/certificates/cert-python-ust.webp";
+import certReact from "../assets/certificates/cert-react.webp";
+import certScientia from "../assets/certificates/cert-scientia.webp";
+import certSnap from "../assets/certificates/cert-snap.webp";
+import certWordPress from "../assets/certificates/cert-wordpress.webp";
 
 const certifications = [
   // 🔹 TECHNICAL
@@ -99,8 +99,18 @@ const CertificationsSection = () => {
         </p>
 
         {/* Toggle Buttons */}
-        {/* Toggle Buttons */}
 <div className="flex justify-center gap-4 mb-12">
+  <button
+    onClick={() => setFilter("all")}
+    className={`px-6 py-2 rounded-md font-semibold text-sm transition-all duration-300 transform border ${
+      filter === "all"
+        ? "bg-primary text-background font-bold shadow-xl scale-105"
+        : "bg-background/20 text-primary border-primary/50 hover:shadow-md hover:scale-[1.03]"
+    }`}
+  >
+    All
+  </button>
+
   <button
     onClick={() => setFilter("technical")}
     className={`px-6 py-2 rounded-md font-semibold text-sm transition-all duration-300 transform border ${
@@ -133,12 +143,16 @@ const CertificationsSection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.05 + i * 0.03 }}
               onClick={() => handleCardClick(c.id)}
+              data-cursor="view"
+              data-cursor-label="View"
               className="glass-card neon-border neon-glow-hover neon-border-hover overflow-hidden cursor-pointer hover:scale-[1.03] transition-all duration-300 group"
             >
               <div className="aspect-[4/3] overflow-hidden flex items-center justify-center bg-background/10 p-2">
                 <img
                   src={c.image}
                   alt={c.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>

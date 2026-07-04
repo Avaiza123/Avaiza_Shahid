@@ -51,6 +51,10 @@ export default {
           DEFAULT: "hsl(var(--neon-glow))",
           secondary: "hsl(var(--neon-glow-2))",
         },
+        cyan: "hsl(var(--cyan))",
+        violet: "hsl(var(--violet))",
+        pinkglow: "hsl(var(--pink))",
+        orangeglow: "hsl(var(--orange))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -88,6 +92,22 @@ export default {
           "0%": { transform: "scale(0.95)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+        "float-y": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-14px)" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "spin-reverse-slow": {
+          from: { transform: "rotate(360deg)" },
+          to: { transform: "rotate(0deg)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.6" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +115,13 @@ export default {
         "fade-in": "fade-in 0.3s ease-out",
         "fade-out": "fade-out 0.3s ease-out",
         "scale-in": "scale-in 0.2s ease-out",
+        "float-y": "float-y 6s ease-in-out infinite",
+        "spin-slow": "spin-slow 20s linear infinite",
+        "spin-reverse-slow": "spin-reverse-slow 25s linear infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+      },
+      transitionTimingFunction: {
+        premium: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
